@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="libs/easymob-webim-sdk/jquery-1.11.1.js"></script>
+		<script>
+			function f() {
+				/*var b=document.getElementById("login");
+		b.on('click', function () {
+	    alert('Hello!');
+	});*/
+				alert("qq");
+			}
+		</script>
+	</head>
+
+	<body>
+		<button id="login" onclick="f()" type="button">button</button>
+		<script type="text/javascript">
+			$(function() {
+				$("#btn4").click(function() {
+					$("#btn3").click();
+				});
+			});
+
+			function change() {
+				alert("onclick");
+			}
+		</script>
+
+		<button id="btn3" onclick="change()">dd</button>
+		<button id="btn4">ee</button>
+	</body>
+
+</html>
