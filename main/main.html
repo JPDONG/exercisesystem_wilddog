@@ -3,6 +3,7 @@
 
 	<head>
 		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<title>首页</title>
 		<link href="../css/mui.min.css" rel="stylesheet" />
 		<link href="../css/style.css" rel="stylesheet" />
@@ -15,12 +16,27 @@
 		</header>
 		<div class="mui-content">
 			<ul class="mui-table-view">
-				<li id="list_exercise" class="mui-table-view-cell">練習</li>
-				<li id="list_test" class="mui-table-view-cell">測試</li>
-				<li id="list_history" class="mui-table-view-cell">考試記錄</li>
-				<li id="list_wrongsets" class="mui-table-view-cell">錯題集</li>
+				<li id="list_exercise" class="mui-table-view-cell"><a href="exercise_view.html">练习</a></li>
+				<li id="list_test" class="mui-table-view-cell">测试</li>
+				<li id="list_history" class="mui-table-view-cell">测试记录</li>
+				<li id="list_wrongsets" class="mui-table-view-cell">错题集</li>
 			</ul>
+			<nav class="mui-bar mui-bar-tab">
+				<a class="mui-tab-item mui-active" href="main.html">
+		        首页
+		    </a>
+				<a class="mui-tab-item" href="setting.html">
+		        设置
+		    </a>
+
+			</nav>
 		</div>
+		<script>
+			/*alert(document.getElementsByTagName("li")[1].childNodes[0].nodeValue);
+						for(var i=0;i < document.getElementsByTagName("li")[1].childNodes.length;i++){
+							alert(document.getElementsByTagName("li")[1].childNodes[i].nodeValue);
+						} */
+		</script>
 	</body>
 
 </html>

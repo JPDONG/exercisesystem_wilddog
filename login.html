@@ -104,29 +104,29 @@
 					<label>密码</label>
 					<input id='password' type="password" class="mui-input-clear mui-input" placeholder="请输入密码">
 				</div>
-			</form>
 
-			<div class="mui-content-padded">
-				<button id='login' class="mui-btn mui-btn-block mui-btn-primary">登录</button>
-				<div class="link-area"><a href="reg.html">注册账号</a> <span class="spliter">|</span> <a href="forget_password.html">忘记密码</a>
+				<div class="mui-content-padded">
+					<button id='login' type="submit" class="mui-btn mui-btn-block mui-btn-primary">登录</button>
+					<div class="link-area"><a href="reg.html">注册账号</a> <span class="spliter">|</span> <a href="forget_password.html">忘记密码</a>
+					</div>
 				</div>
-			</div>
+			</form>
 		</div>
 
 		<script src="js/mui.min.js"></script>
 		<script src="js/mui.enterfocus.js"></script>
 		<script src="js/app.js"></script>
 		<script src="libs/easymob-webim-sdk/jquery-1.11.1.js"></script>
+		<script src="scripts/login_and_reg.js"></script>
 		<script>
-			$("#login").click(function(){
-				alert("qq");
+			/*$("#login").click(function() {
+				//alert("qq");
 				var useremail = document.getElementById('email').value;
 				var userpassword = document.getElementById('password').value;
 				var ref = new Wilddog("https://dong.wilddogio.com/");
-				
 				ref.authWithPassword({
-					email:useremail,
-					password:userpassword
+					email: useremail,
+					password: userpassword
 				}, function(err, data) {
 					if (err == null) {
 						console.log("auth success!");
@@ -134,9 +134,9 @@
 						console.log("auth failed,msg:", err);
 					}
 				});
-			});
+			});*/
 		</script>
-		
+
 	</body>
 
 </html>

@@ -17,6 +17,17 @@
 	</head>
 
 	<body>
+		<ul>
+			<li>
+			<p id="question_text">hahahahhaha</p>
+			</li>
+			<li>
+				<form>
+			<input type="email">邮箱</li>
+			<button type="submit">button</button>
+			<input type="submit" />
+			</form>
+		</ul>
 		<button id="login" onclick="f()" type="button">button</button>
 		<script type="text/javascript">
 			$(function() {
@@ -28,6 +39,12 @@
 			function change() {
 				alert("onclick");
 			}
+			/*var list = document.getElementsByTagName("li");
+			for (var i = 0; i < list[0].childNodes.length; i++) {
+				console.log(list[0].childNodes[i].nodeValue);
+			}*/
+			var question_text = document.getElementById("question_text");
+			console.log(question_text.childNodes[0].nodeValue);
 		</script>
 
 		<button id="btn3" onclick="change()">dd</button>

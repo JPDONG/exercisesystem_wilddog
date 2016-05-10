@@ -1,0 +1,37 @@
+<html>
+<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link href="../css/style.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../css/listview.css" />
+	</head>
+	<body>
+	</body>
+	<script src="https://cdn.wilddog.com/js/client/current/wilddog.js"></script>
+	<script>
+	var ref = new Wilddog("https://dong.wilddogio.com/users");
+	//ref.push({name:"xiaoming",age:"11"});
+	//var child_ref = ref.child("xiaoming");
+	ref.child("xiaoming").update({name:"xiaoming",age:"11"});
+	//child_ref.
+	ref.orderByValue().on("value",function(snap){
+		snap.forEach(function(data){
+			console.log(data.key());
+			if(data.key() == "xiaoming"){
+				console.log(data.val());
+				data.forEach(function(data1){
+					console.log(data1.key());
+					if(data1.key() == "testhistory"){
+						console.log(data1.val());
+						data1.forEach(function(data2){
+							console.log(data2.key());
+						})
+					}
+				})
+			}
+		})
+	})
+	</script>
+</html>
