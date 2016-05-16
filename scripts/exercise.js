@@ -1,13 +1,26 @@
-window.onload = loadQuestions();
+window.onload = loadQuestions(0);
 var answer;
 var bSubmit = document.getElementById("submit_answer");
 bSubmit.onclick = function(){
-	checkAnswer();
+	if(bSubmit.innerHTML == "确定"){
+		checkAnswer();
+		bSubmit.innerHTML = "下一题";
+	}else{
+		loadQuestions(1);
+		bSubmit.innerHTML = "确定"
+	}
+	
+	
 	//judgeRadioClicked();
 }
 
-function loadQuestions() {
-	var ref = new Wilddog("http://dong.wilddogio.com/questions/1/");
+function loadQuestions(questionId) {
+	var refRoot = new Wilddog("http://dong.wilddogio.com/questions");
+	var ref = refRoot.child(questionId);
+	if(ref == null){
+		alert("no such child");
+	}
+	var resultDiv = document.getElementById("result_div");
 	var list = document.getElementsByTagName("li");
 	//var question_text = document.getElementById("question_text");
 	var question_text = document.getElementById("question_text");
@@ -17,12 +30,12 @@ function loadQuestions() {
 	//question_text.innerHTML = "hello";
 	var value = ref.child("question_id").key();
 	//var question_text = ref.child("question_text");
-	
+	resultDiv.style.visibility="hidden";
 	ref.orderByValue().on("value", function(snap) {
 		console.log(snap.key());
 		snap.forEach(function(data) {
 			console.log(data.key() + ":" + data.val());
-			if (data.key() == "quesiton_text") {
+			if (data.key() == "question_text") {
 				//list[0].childNodes[1].childNodes[0].nodeValue = data.val();
 				question_text.innerHTML = data.val();
 				return;
@@ -42,9 +55,14 @@ function loadQuestions() {
 }
 
 function checkAnswer() {
-	var radios = document.getElementsByName("options");  
-                                  
+	var radios = document.getElementsByName("options"); 
+	var result = document.getElementById("result");
+	var resultDiv = document.getElementById("result_div");
+	var rightAnswer = document.getElementById("right_answer");
+	/*var selectValue = $('input[type=radio]:checked').value;
+    console.log("jquery:"+selectValue); */                   
     //根据 name集合长度 遍历name集合  
+    
     for(var i=0;i<radios.length;i++)  
     {   
         //判断那个单选按钮为选中状态  
@@ -52,8 +70,18 @@ function checkAnswer() {
         {  
             //弹出选中单选按钮的值  
             console.log(radios[i].value);  
-            if(radios[i].value == 'B')
-            console.log("correct");
+            if(radios[i].value == answer){
+            	console.log("correct");
+            	result.innerHTML="正确";
+            	rightAnswer.innerHTML=answer;
+            	resultDiv.style.visibility="visible";
+            }else{
+            	console.log("wrong");
+            	result.innerHTML="错误";
+            	rightAnswer.innerHTML=answer;
+            	resultDiv.style.visibility="visible";
+            }
+            
         }   
     }   
 }

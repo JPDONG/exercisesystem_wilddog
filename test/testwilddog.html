@@ -11,7 +11,8 @@
 	</body>
 	<script src="https://cdn.wilddog.com/js/client/current/wilddog.js"></script>
 	<script>
-	var ref = new Wilddog("https://dong.wilddogio.com/users");
+	/*测试读取多层json
+	 * var ref = new Wilddog("https://dong.wilddogio.com/users");
 	//ref.push({name:"xiaoming",age:"11"});
 	//var child_ref = ref.child("xiaoming");
 	ref.child("xiaoming").update({name:"xiaoming",age:"11"});
@@ -32,6 +33,22 @@
 				})
 			}
 		})
-	})
+	})*/
+	
+	//测试写入用户信息
+	var ref= new Wilddog("https://dong.wilddogio.com/");
+	ref.orderByValue().on("value",function(snapshot){
+		snapshot.forEach(function(data){
+			console.log(data.key());
+		});
+		
+});
+	user_ref = ref.child('usrs');
+	if(user_ref == null){
+		console.log("user_ref is null");
+		
+	}
+	console.log("child_ref is not null " + user_ref.toString());
+	user_ref.update({"temp":10,"pm25":500});
 	</script>
 </html>
