@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div visibility: hidden>
+			<p>hahahhahaha</p>
+		</div>
+		<button>buttonshow</button>
+				<button>buttonhidden</button>
+	</body>
+	<script>
+	
+		var divs = document.getElementsByTagName("div");
+		//[0].style.visibility="visible"
+		console.log(divs[0]);
+		var bShow = document.getElementsByTagName("button")[0];
+		var bHidden = document.getElementsByTagName("button")[1];
+		console.log(bShow);
+				console.log(bHidden);
+		bShow.onclick = function(){
+			divs[0].style.visibility="visible";
+			console.log(divs[0]);
+		}
+		bHidden.onclick = function(){
+			divs[0].style.visibility="hidden";
+			console.log(divs[0]);
+		}
+	</script>
+</html>
