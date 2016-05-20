@@ -4,10 +4,13 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
 		<title>首页</title>
 		<link href="../css/mui.min.css" rel="stylesheet" />
 		<link href="../css/style.css" rel="stylesheet" />
 		<link rel="stylesheet" href="../css/listview.css" />
+		<link rel="stylesheet" type="text/css" href="../css/app.css" />
 	</head>
 
 	<body>
@@ -15,27 +18,42 @@
 			<h1 class="mui-title">首页</h1>
 		</header>
 		<div class="mui-content">
-			<ul class="mui-table-view">
-				<li id="list_exercise" class="mui-table-view-cell"><a href="exercise_view.html">练习</a></li>
-				<li id="list_test" class="mui-table-view-cell">测试</li>
-				<li id="list_history" class="mui-table-view-cell">测试记录</li>
-				<li id="list_wrongsets" class="mui-table-view-cell">错题集</li>
-			</ul>
-			<nav class="mui-bar mui-bar-tab">
-				<a class="mui-tab-item mui-active" href="main.html">
+			<div class="mui-card">
+				<ul class="mui-table-view">
+					<li id="list_exercise" class="mui-table-view-cell mui-collapse">
+						<a class="mui-navigate-right" href="#">练习</a>
+						<div class="mui-collapse-content">
+
+							<div class="mui-input-row">
+								<a href="exercise_view.html">选择题</a>
+							</div>
+							<div class="mui-input-row">
+								<a href="exercise_tk.html">填空题</a>
+							</div>
+
+						</div>
+					</li>
+					<li id="list_test" class="mui-table-view-cell">测试</li>
+					<li id="list_history" class="mui-table-view-cell">测试记录</li>
+					<li id="list_wrongsets" class="mui-table-view-cell">错题集</li>
+				</ul>
+				<nav class="mui-bar mui-bar-tab">
+					<a class="mui-tab-item mui-active" href="main.html">
 		        首页
 		    </a>
-				<a class="mui-tab-item" href="setting.html">
+					<a class="mui-tab-item" href="setting.html">
 		        设置
 		    </a>
 
-			</nav>
+				</nav>
+			</div>
 		</div>
+		<script src="../js/mui.min.js"></script>
 		<script>
 			/*alert(document.getElementsByTagName("li")[1].childNodes[0].nodeValue);
-						for(var i=0;i < document.getElementsByTagName("li")[1].childNodes.length;i++){
-							alert(document.getElementsByTagName("li")[1].childNodes[i].nodeValue);
-						} */
+									for(var i=0;i < document.getElementsByTagName("li")[1].childNodes.length;i++){
+										alert(document.getElementsByTagName("li")[1].childNodes[i].nodeValue);
+									} */
 		</script>
 	</body>
 

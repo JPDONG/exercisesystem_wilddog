@@ -36,7 +36,7 @@
 	})*/
 	
 	//测试写入用户信息
-	var ref= new Wilddog("https://dong.wilddogio.com/");
+	/*var ref= new Wilddog("https://dong.wilddogio.com/");
 	ref.orderByValue().on("value",function(snapshot){
 		snapshot.forEach(function(data){
 			console.log(data.key());
@@ -49,6 +49,21 @@
 		
 	}
 	console.log("child_ref is not null " + user_ref.toString());
-	user_ref.update({"temp":10,"pm25":500});
+	user_ref.update({"temp":10,"pm25":500});*/
+	
+	//测试读取结点总数
+	var ref = new Wilddog("http://dong.wilddogio.com/question_tk/");
+	var num;
+	console.log(ref.key());
+	ref.orderByValue().on('value',function(snap){
+		console.log(snap.val());
+		console.log(snap.val().length);
+		/*snap.forEach(function(data){
+			console.log(data.key());
+			num = num + 1;
+		})*/
+		num = snap.val().length;
+	})
+	console.log(num);
 	</script>
 </html>

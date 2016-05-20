@@ -48,7 +48,10 @@ function loadQuestions(questionId) {
 			} else if (data.key() == "optiond") {
 				options[3].innerHTML = data.val();
 			} else if (data.key() == "answer") {
-				answer = data.val();
+				//answer = data.val();
+				var s = data.val();
+				answer = s[s.length - 1];
+				//console.log(answer);
 			}
 		})
 	});

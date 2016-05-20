@@ -15,29 +15,32 @@ $("#login").click(function() {
 			if (err == null) {
 				console.log("auth success!");
 				//getName(ref);
+				//存储用户名到Cookie
 				ref.orderByValue().on("value", function(snap) {
-		snap.forEach(function(data) {
-			//console.log(data.key());
-			if (data.key() == "users") {
-				//var user_ref = ref.child('users');
-				data.forEach(function(data1) {
-					//console.log(data1.key());
-					//var name_ref = user_ref.child(data1.key()); 
-					data1.forEach(function(data2) {
-						console.log(data2.key());
-						//console.log(data2.val());
-						if (data2.key() == 'user_email' && data2.val() == useremail) {
-							//setCookie('username',user)
-							//console.log(data2.val());
-							//console.log("name !!"+);
-							console.log(data1.key());
+					snap.forEach(function(data) {
+						//console.log(data.key());
+						if (data.key() == "users") {
+							//var user_ref = ref.child('users');
+							data.forEach(function(data1) {
+								//console.log(data1.key());
+								//var name_ref = user_ref.child(data1.key()); 
+								data1.forEach(function(data2) {
+									console.log(data2.key());
+									//console.log(data2.val());
+									if (data2.key() == 'user_email' && data2.val() == useremail) {
+										//setCookie('username',user)
+										//console.log(data2.val());
+										//console.log("name !!"+);
+										console.log(data1.key());
+										setCookie('username', data1.key(), 365);
+										console.log(getCookie('username'));
+									}
+								})
+							})
 						}
-					})
-				})
-			}
 
-		});
-	});
+					});
+				});
 			} else {
 				console.log("auth failed,msg:", err);
 				alert("error");
